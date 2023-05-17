@@ -40,7 +40,7 @@ class LoginController extends Controller
     }
     public function credentials(Request $request)
     {
-        return ['phone' => $request->phone, 'password' => $request->password];
+        return ['phone' => $request->phone, 'password' => $request->password,'role'=>1];
         // if (is_numeric($request->phone)) {
         //     return ['phone' => $request->phone, 'password' => $request->password];
         // }

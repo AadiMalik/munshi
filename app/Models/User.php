@@ -35,7 +35,7 @@ class User extends Authenticatable
         'user_ip',
         'image',
         'unit_worker_code',
-        'user_password',
+        'unit_password',
     ];
 
     /**

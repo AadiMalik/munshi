@@ -3,48 +3,149 @@
     <!-- Content -->
 
     <div class="container-xxl flex-grow-1 container-p-y">
-        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Forms/</span> Vertical Layouts</h4>
+        <h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Add/</span> User</h4>
 
         <!-- Basic Layout -->
         <div class="row">
             <div class="col-md-12">
                 <div class="card mb-4">
-                    <div class="card-header d-flex justify-content-between align-items-center">
-                        <h5 class="mb-0">Basic Layout</h5>
-                        <small class="text-muted float-end">Default label</small>
+                    <div class="card-header">
+                        <h5>Create User</h5>
+                        <hr>
                     </div>
                     <div class="card-body">
-                        <form>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-fullname">Full Name</label>
-                                <input type="text" class="form-control" id="basic-default-fullname"
-                                    placeholder="John Doe" />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-company">Company</label>
-                                <input type="text" class="form-control" id="basic-default-company"
-                                    placeholder="ACME Inc." />
-                            </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-email">Email</label>
-                                <div class="input-group input-group-merge">
-                                    <input type="text" id="basic-default-email" class="form-control"
-                                        placeholder="john.doe" aria-label="john.doe"
-                                        aria-describedby="basic-default-email2" />
-                                    <span class="input-group-text" id="basic-default-email2">@example.com</span>
+                        <form action="{{route('users.store')}}" method="POST" enctype="multipart/form-data">
+                            @csrf
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Phone No:<span class="text-danger">*</span></label>
+                                        <input type="number" step="any" name="phone" class="form-control" id="phone"
+                                            placeholder="Phone no" required />
+                                    </div>
                                 </div>
-                                <div class="form-text">You can use letters, numbers & periods</div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">User Code:<span class="text-danger">*</span></label>
+                                        <input type="number" step="any" name="user_code" class="form-control" id="phone"
+                                            placeholder="User code" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">App Users:<span class="text-danger">*</span></label>
+                                        <input type="number" step="any" name="app_user" class="form-control" id="phone"
+                                            placeholder="App users" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">1st User Phone:<span class="text-danger">*</span></label>
+                                        <input type="number" step="any" name="user_phone1" class="form-control" id="phone"
+                                            placeholder="First user phone" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">1st User Name:<span class="text-danger">*</span></label>
+                                        <input type="text" step="any" name="user_name1" class="form-control" id="phone"
+                                            placeholder="First user name" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">1st User Designation:<span class="text-danger">*</span></label>
+                                        <input type="text" name="user_designation1" class="form-control" id="phone"
+                                            placeholder="First user designation" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">2nd User Phone:</label>
+                                        <input type="number" step="any" name="user_phone2" class="form-control" id="phone"
+                                            placeholder="Second user phone" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">2nd User Name:</label>
+                                        <input type="text" step="any" name="user_name2" class="form-control" id="phone"
+                                            placeholder="Second user name" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">2nd User Designation:</label>
+                                        <input type="text" step="any" name="user_designation2" class="form-control" id="phone"
+                                            placeholder="Second user designation" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Company:<span class="text-danger">*</span></label>
+                                        <input type="text" name="company" class="form-control" id="phone"
+                                            placeholder="Company" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Unit Name:<span class="text-danger">*</span></label>
+                                        <input type="text" name="unit_name" class="form-control" id="unit_name"
+                                            placeholder="Unit Name" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">User IP:<span class="text-danger">*</span></label>
+                                        <input type="number" step="any" name="user_ip" class="form-control" id="user_ip"
+                                            placeholder="User IP" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Unit Worker Code:<span class="text-danger">*</span></label>
+                                        <input type="number" step="any" name="unit_worker_code" class="form-control" id="unit_worker_code"
+                                            placeholder="Unit worker code" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Unit Password:<span class="text-danger">*</span></label>
+                                        <input type="text" name="unit_password" class="form-control" id="unit_password"
+                                            placeholder="Unit Password" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Password:<span class="text-danger">*</span></label>
+                                        <input type="text" name="password" value="abc123" class="form-control" id="password"
+                                            placeholder="Password" required />
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="">Role:<span class="text-danger">*</span></label>
+                                        <select name="role" class="form-control" id="role">
+                                            <option selected disabled>--Select Role--</option>
+                                            <option value="1">Super Admin</option>
+                                            <option value="5">Admin</option>
+                                            <option value="6">Munshi</option>
+                                            <option value="7">Pather Munshi</option>
+                                            <option value="8">Nakasi Munshi</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group mb-2">
+                                        <label class="">Image:<span class="text-danger">*</span></label>
+                                        <input type="file" name="image" class="form-control" id="image" required />
+                                    </div>
+                                </div>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-phone">Phone No</label>
-                                <input type="text" id="basic-default-phone" class="form-control phone-mask"
-                                    placeholder="658 799 8941" />
+                            <div class="col-md-12">
+                                <hr>
+                                <button type="submit" class="btn btn-primary">Save</button>
                             </div>
-                            <div class="mb-3">
-                                <label class="form-label" for="basic-default-message">Message</label>
-                                <textarea id="basic-default-message" class="form-control" placeholder="Hi, Do you have a moment to talk Joe?"></textarea>
-                            </div>
-                            <button type="submit" class="btn btn-primary">Send</button>
                         </form>
                     </div>
                 </div>
