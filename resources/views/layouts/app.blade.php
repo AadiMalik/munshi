@@ -127,6 +127,12 @@
                             <div data-i18n="Account Settings">Users</div>
                         </a>
                     </li>
+                    <li class="menu-item">
+                        <a href="{{url('roles')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-user-pin"></i>
+                            <div data-i18n="Account Settings">Roles</div>
+                        </a>
+                    </li>
                     <!-- Components -->
                     <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
                     <!-- Cards -->

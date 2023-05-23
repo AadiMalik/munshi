@@ -37,7 +37,7 @@
                                 <td>{{$item->user_ip??'N/A'}}</td>
                                 <td>{{$item->unit_name??'N/A'}}</td>
                                 <td>{{$item->phone??'N/A'}}</td>
-                                <td>{{($item->role=1)?'Admin':'User'}}</td>
+                                <td>{{$item->role_name->name??''}}</td>
                                 <td>{{$item->user_code??'N/A'}}</td>
                                 <td>{{$item->app_user??'N/A'}}</td>
                                 <td>{{$item->user_phone1??'N/A'}}</td>

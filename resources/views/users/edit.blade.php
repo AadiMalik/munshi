@@ -128,8 +128,9 @@
                                         <label class="">Role:<span class="text-danger">*</span></label>
                                         <select name="role" class="form-control" id="role">
                                             <option selected disabled>--Select Role--</option>
-                                            <option value="0" {{($user->role=0)?'selected':''}}>User</option>
-                                            <option value="1" {{($user->role=1)?'selected':''}}>Admin</option>
+                                            @foreach ($roles as $item)
+                                            <option value="{{$item->id}}" {{($user->role==$item->id)?'selected':''}}>{{$item->name??''}}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>
