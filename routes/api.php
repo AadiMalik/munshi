@@ -17,3 +17,15 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::post('login', [App\Http\Controllers\ApiController::class, 'login']);
+
+Route::group(['middleware' => ['jwt.verify']], function() {
+    Route::get('activity', [App\Http\Controllers\ApiController::class, 'activity']);
+    Route::post('add-permission', [App\Http\Controllers\ApiController::class, 'add_permission']);
+    Route::get('permissions/{id}', [App\Http\Controllers\ApiController::class, 'permissions']);
+    Route::post('delete-permission', [App\Http\Controllers\ApiController::class, 'delete_permission']);
+
+    
+    Route::post('update-password', [App\Http\Controllers\ApiController::class, 'update_password']);
+});

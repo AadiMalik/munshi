@@ -53,7 +53,7 @@
 
             <aside id="layout-menu" class="layout-menu menu-vertical menu bg-menu-theme">
                 <div class="app-brand demo">
-                    <a href="index.html" class="app-brand-link">
+                    <a href="{{url('home')}}" class="app-brand-link">
                         <span class="app-brand-logo demo">
                             <svg width="25" viewBox="0 0 25 42" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -119,7 +119,7 @@
                     </li>
 
                     <li class="menu-header small text-uppercase">
-                        <span class="menu-header-text">Users</span>
+                        <span class="menu-header-text">Menu</span>
                     </li>
                     <li class="menu-item">
                         <a href="{{url('users')}}" class="menu-link">
@@ -133,208 +133,10 @@
                             <div data-i18n="Account Settings">Roles</div>
                         </a>
                     </li>
-                    <!-- Components -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Components</span></li>
-                    <!-- Cards -->
                     <li class="menu-item">
-                        <a href="cards-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-collection"></i>
-                            <div data-i18n="Basic">Cards</div>
-                        </a>
-                    </li>
-                    <!-- User interface -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-box"></i>
-                            <div data-i18n="User interface">User interface</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="ui-accordion.html" class="menu-link">
-                                    <div data-i18n="Accordion">Accordion</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-alerts.html" class="menu-link">
-                                    <div data-i18n="Alerts">Alerts</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-badges.html" class="menu-link">
-                                    <div data-i18n="Badges">Badges</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-buttons.html" class="menu-link">
-                                    <div data-i18n="Buttons">Buttons</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-carousel.html" class="menu-link">
-                                    <div data-i18n="Carousel">Carousel</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-collapse.html" class="menu-link">
-                                    <div data-i18n="Collapse">Collapse</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-dropdowns.html" class="menu-link">
-                                    <div data-i18n="Dropdowns">Dropdowns</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-footer.html" class="menu-link">
-                                    <div data-i18n="Footer">Footer</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-list-groups.html" class="menu-link">
-                                    <div data-i18n="List Groups">List groups</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-modals.html" class="menu-link">
-                                    <div data-i18n="Modals">Modals</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-navbar.html" class="menu-link">
-                                    <div data-i18n="Navbar">Navbar</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-offcanvas.html" class="menu-link">
-                                    <div data-i18n="Offcanvas">Offcanvas</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-pagination-breadcrumbs.html" class="menu-link">
-                                    <div data-i18n="Pagination &amp; Breadcrumbs">Pagination &amp; Breadcrumbs</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-progress.html" class="menu-link">
-                                    <div data-i18n="Progress">Progress</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-spinners.html" class="menu-link">
-                                    <div data-i18n="Spinners">Spinners</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-tabs-pills.html" class="menu-link">
-                                    <div data-i18n="Tabs &amp; Pills">Tabs &amp; Pills</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-toasts.html" class="menu-link">
-                                    <div data-i18n="Toasts">Toasts</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-tooltips-popovers.html" class="menu-link">
-                                    <div data-i18n="Tooltips & Popovers">Tooltips &amp; popovers</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="ui-typography.html" class="menu-link">
-                                    <div data-i18n="Typography">Typography</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <!-- Extended components -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0)" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-copy"></i>
-                            <div data-i18n="Extended UI">Extended UI</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="extended-ui-perfect-scrollbar.html" class="menu-link">
-                                    <div data-i18n="Perfect Scrollbar">Perfect scrollbar</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="extended-ui-text-divider.html" class="menu-link">
-                                    <div data-i18n="Text Divider">Text Divider</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="menu-item">
-                        <a href="icons-boxicons.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-crown"></i>
-                            <div data-i18n="Boxicons">Boxicons</div>
-                        </a>
-                    </li>
-
-                    <!-- Forms & Tables -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Forms &amp;
-                            Tables</span></li>
-                    <!-- Forms -->
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-detail"></i>
-                            <div data-i18n="Form Elements">Form Elements</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="forms-basic-inputs.html" class="menu-link">
-                                    <div data-i18n="Basic Inputs">Basic Inputs</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="forms-input-groups.html" class="menu-link">
-                                    <div data-i18n="Input groups">Input groups</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <li class="menu-item">
-                        <a href="javascript:void(0);" class="menu-link menu-toggle">
-                            <i class="menu-icon tf-icons bx bx-detail"></i>
-                            <div data-i18n="Form Layouts">Form Layouts</div>
-                        </a>
-                        <ul class="menu-sub">
-                            <li class="menu-item">
-                                <a href="form-layouts-vertical.html" class="menu-link">
-                                    <div data-i18n="Vertical Form">Vertical Form</div>
-                                </a>
-                            </li>
-                            <li class="menu-item">
-                                <a href="form-layouts-horizontal.html" class="menu-link">
-                                    <div data-i18n="Horizontal Form">Horizontal Form</div>
-                                </a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- Tables -->
-                    <li class="menu-item">
-                        <a href="tables-basic.html" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-table"></i>
-                            <div data-i18n="Tables">Tables</div>
-                        </a>
-                    </li>
-                    <!-- Misc -->
-                    <li class="menu-header small text-uppercase"><span class="menu-header-text">Misc</span></li>
-                    <li class="menu-item">
-                        <a href="https://github.com/themeselection/sneat-html-admin-template-free/issues"
-                            target="_blank" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-support"></i>
-                            <div data-i18n="Support">Support</div>
-                        </a>
-                    </li>
-                    <li class="menu-item">
-                        <a href="https://themeselection.com/demo/sneat-bootstrap-html-admin-template/documentation/"
-                            target="_blank" class="menu-link">
-                            <i class="menu-icon tf-icons bx bx-file"></i>
-                            <div data-i18n="Documentation">Documentation</div>
+                        <a href="{{url('activity')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-medal"></i>
+                            <div data-i18n="Account Settings">Activities</div>
                         </a>
                     </li>
                 </ul>
@@ -354,46 +156,31 @@
                     </div>
 
                     <div class="navbar-nav-right d-flex align-items-center" id="navbar-collapse">
-                        <!-- Search -->
-                        <div class="navbar-nav align-items-center">
-                            <div class="nav-item d-flex align-items-center">
-                                <i class="bx bx-search fs-4 lh-0"></i>
-                                <input type="text" class="form-control border-0 shadow-none"
-                                    placeholder="Search..." aria-label="Search..." />
-                            </div>
-                        </div>
-                        <!-- /Search -->
+                        
 
                         <ul class="navbar-nav flex-row align-items-center ms-auto">
-                            <!-- Place this tag where you want the button to render. -->
-                            <li class="nav-item lh-1 me-3">
-                                <a class="github-button"
-                                    href="https://github.com/themeselection/sneat-html-admin-template-free"
-                                    data-icon="octicon-star" data-size="large" data-show-count="true"
-                                    aria-label="Star themeselection/sneat-html-admin-template-free on GitHub">Star</a>
-                            </li>
 
                             <!-- User -->
                             <li class="nav-item navbar-dropdown dropdown-user dropdown">
                                 <a class="nav-link dropdown-toggle hide-arrow" href="javascript:void(0);"
                                     data-bs-toggle="dropdown">
                                     <div class="avatar avatar-online">
-                                        <img src="{{asset('public/assets/img/avatars/1.png')}}" alt
+                                        <img src="{{asset(Auth()->user()->image??'public/assets/img/avatars/1.png')}}" alt
                                             class="w-px-40 h-auto rounded-circle" />
                                     </div>
                                 </a>
                                 <ul class="dropdown-menu dropdown-menu-end">
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{url('profile')}}">
                                             <div class="d-flex">
                                                 <div class="flex-shrink-0 me-3">
                                                     <div class="avatar avatar-online">
-                                                        <img src="{{asset('public/assets/img/avatars/1.png')}}" alt
+                                                        <img src="{{asset(Auth()->user()->image??'public/assets/img/avatars/1.png')}}" alt
                                                             class="w-px-40 h-auto rounded-circle" />
                                                     </div>
                                                 </div>
                                                 <div class="flex-grow-1">
-                                                    <span class="fw-semibold d-block">John Doe</span>
+                                                    <span class="fw-semibold d-block">{{Auth()->user()->company??''}}</span>
                                                     <small class="text-muted">Admin</small>
                                                 </div>
                                             </div>
@@ -403,25 +190,9 @@
                                         <div class="dropdown-divider"></div>
                                     </li>
                                     <li>
-                                        <a class="dropdown-item" href="#">
+                                        <a class="dropdown-item" href="{{url('profile')}}">
                                             <i class="bx bx-user me-2"></i>
                                             <span class="align-middle">My Profile</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <i class="bx bx-cog me-2"></i>
-                                            <span class="align-middle">Settings</span>
-                                        </a>
-                                    </li>
-                                    <li>
-                                        <a class="dropdown-item" href="#">
-                                            <span class="d-flex align-items-center align-middle">
-                                                <i class="flex-shrink-0 bx bx-credit-card me-2"></i>
-                                                <span class="flex-grow-1 align-middle">Billing</span>
-                                                <span
-                                                    class="flex-shrink-0 badge badge-center rounded-pill bg-danger w-px-20 h-px-20">4</span>
-                                            </span>
                                         </a>
                                     </li>
                                     <li>

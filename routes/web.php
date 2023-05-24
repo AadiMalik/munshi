@@ -25,5 +25,12 @@ Route::group(['middleware' => ['auth']], function () {
 
 Route::resource('users', App\Http\Controllers\UserController::class);
 Route::resource('roles', App\Http\Controllers\RoleController::class);
+Route::resource('activity', App\Http\Controllers\ActivityController::class);
+
+Route::get('profile', function () {
+    return view('users.profile');
+});
+
+Route::post('profile-update/{id}',[App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
 
 });
