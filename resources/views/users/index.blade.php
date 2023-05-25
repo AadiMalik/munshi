@@ -46,7 +46,10 @@
                                 
                                 <td>
                                     <a href="{{route('users.edit',$item->id)}}" class="btn btn-warning">Edit</a>
-                                    {{-- <a href="#" class="btn btn-danger">Delete</a> --}}
+                                    <a class="btn btn-danger text-white"
+                                            onclick="usersDelete{{ $item->id }}({{ $item->id }})">
+                                            Delete
+                                        </a>
                                 </td>
                             </tr>
                             @endforeach
@@ -59,4 +62,46 @@
         <!--/ Striped Rows -->
     </div>
     <!-- / Content -->
+@endsection
+@section('script')
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/izitoast@1.4.0/dist/js/iziToast.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.10.0/tinymce.min.js"></script>
+@foreach ($users as $item)
+<script>
+    function usersDelete{{$item->id}}(id){
+        swal({
+            title: "Are You Sure Want To Delete User?",
+            icon: "warning",
+            buttons: true,
+            dangerMode: true,
+        }).then((willDelete) => {
+            if (willDelete) {
+                var url = '{{ route("deleteUser", ":id") }}';
+                url = url.replace(':id', id);
+                $.ajax({
+                    type: "POST",
+                    headers: {
+                        'X-CSRF-TOKEN': '{{ csrf_token() }}'
+                    },
+                    url: url,
+                    dataType: "json",
+                    data: {
+                        id: id
+                    },
+                    success: function(data) {
+                        iziToast.success({
+                            message: data.message,
+                            position: 'topRight'
+                        });
+                        window.location.reload();
+
+                    }
+                });
+            }
+        });
+
+    }
+</script>
+@endforeach
 @endsection

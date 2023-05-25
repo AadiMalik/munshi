@@ -35,6 +35,7 @@
 
     <!-- Page CSS -->
 
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Helpers -->
     <script src="{{asset('public/assets/vendor/js/helpers.js')}}"></script>
 

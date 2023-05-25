@@ -75,8 +75,10 @@ class UserController extends Controller
     {
         return view('users.edit');
     }
-    public function delete($id)
+    public function delete(Request $request)
     {
-        return view('users.edit');
+        $user = User::find($request->id);
+        $user->delete();
+        return response(['message' => 'User delete successfully']);
     }
 }
