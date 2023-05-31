@@ -18,6 +18,19 @@
                             @csrf
                             @method('PUT')
                             <div class="row">
+                                <div class="col-md-12 text-center">
+                                    <b style="font-size:18px; color:#696cff;">Company Admin</b>
+                                    <hr class="mt-0">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Company Name:<span class="text-danger">*</span></label>
+                                        <input type="text" name="company" class="form-control" id="phone"
+                                            placeholder="Company" value="{{$user->company??''}}" required />
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group mb-2">
                                         <label class="">Phone No:<span class="text-danger">*</span></label>
@@ -30,13 +43,6 @@
                                         <label class="">User Code:<span class="text-danger">*</span></label>
                                         <input type="number" step="any" name="user_code" class="form-control" id="phone"
                                             placeholder="User code" value="{{$user->user_code??''}}" required />
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mb-2">
-                                        <label class="">App Users:<span class="text-danger">*</span></label>
-                                        <input type="number" step="any" name="app_user" class="form-control" id="phone"
-                                            placeholder="App users" value="{{$user->app_user??''}}" required />
                                     </div>
                                 </div>
                                 <div class="col-md-4">
@@ -62,6 +68,44 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group mb-2">
+                                        <label class="">Password:</label>
+                                        <input type="text" name="password" class="form-control" id="password"
+                                            placeholder="Password" />
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">Role:<span class="text-danger">*</span></label>
+                                        <select name="role" class="form-control" id="role">
+                                            <option selected disabled>--Select Role--</option>
+                                            @foreach ($roles as $item)
+                                            <option value="{{$item->id}}" {{($user->role==$item->id)?'selected':''}}>{{$item->name??''}}</option>
+                                            @endforeach
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
+                                        <label class="">New Image:</label>
+                                        <input type="file" name="image" class="form-control" id="image" />
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group mb-2">
+                                        <label class="">old Image:</label>
+                                        <img src="{{asset($user->image??'')}}" style="width:40px; height:40px;" alt="">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mt-1">
+                                <div class="col-md-12 text-center">
+                                    <b style="font-size:18px; color:#696cff;">Worker</b>
+                                    <hr class="mt-0">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="form-group mb-2">
                                         <label class="">2nd User Phone:</label>
                                         <input type="number" step="any" name="user_phone2" class="form-control" id="phone"
                                             placeholder="Second user phone" value="{{$user->user_phone2??''}}" />
@@ -81,13 +125,7 @@
                                             placeholder="Second user designation" value="{{$user->user_designation2??''}}" />
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mb-2">
-                                        <label class="">Company:<span class="text-danger">*</span></label>
-                                        <input type="text" name="company" class="form-control" id="phone"
-                                            placeholder="Company" value="{{$user->company??''}}" required />
-                                    </div>
-                                </div>
+                                
                                 <div class="col-md-4">
                                     <div class="form-group mb-2">
                                         <label class="">Unit Name:<span class="text-danger">*</span></label>
@@ -116,36 +154,7 @@
                                             placeholder="Unit Password" value="{{$user->unit_password??''}}" />
                                     </div>
                                 </div>
-                                <div class="col-md-4">
-                                    <div class="form-group mb-2">
-                                        <label class="">Password:</label>
-                                        <input type="text" name="password" class="form-control" id="password"
-                                            placeholder="Password" />
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label class="">Role:<span class="text-danger">*</span></label>
-                                        <select name="role" class="form-control" id="role">
-                                            <option selected disabled>--Select Role--</option>
-                                            @foreach ($roles as $item)
-                                            <option value="{{$item->id}}" {{($user->role==$item->id)?'selected':''}}>{{$item->name??''}}</option>
-                                            @endforeach
-                                        </select>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group mb-2">
-                                        <label class="">New Image:</label>
-                                        <input type="file" name="image" class="form-control" id="image" />
-                                    </div>
-                                </div>
-                                <div class="col-md-12">
-                                    <div class="form-group mb-2">
-                                        <label class="">old Image:</label>
-                                        <img src="{{asset($user->image??'')}}" style="width:40px; height:40px;" alt="">
-                                    </div>
-                                </div>
+                                
                             </div>
                             <div class="col-md-12">
                                 <hr>

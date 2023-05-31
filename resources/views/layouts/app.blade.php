@@ -112,7 +112,7 @@
 
                 <ul class="menu-inner py-1">
                     <!-- Dashboard -->
-                    <li class="menu-item active">
+                    <li class="menu-item {{ Request::is('home*') ? 'active' : '' }}">
                         <a href="{{url('home')}}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-home-circle"></i>
                             <div data-i18n="Analytics">Dashboard</div>
@@ -122,22 +122,28 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Menu</span>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ Request::is('users*') ? 'active' : '' }}">
                         <a href="{{url('users')}}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-user"></i>
                             <div data-i18n="Account Settings">Users</div>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ Request::is('roles*') ? 'active' : '' }}">
                         <a href="{{url('roles')}}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-user-pin"></i>
                             <div data-i18n="Account Settings">Roles</div>
                         </a>
                     </li>
-                    <li class="menu-item">
+                    <li class="menu-item {{ Request::is('activity*') ? 'active' : '' }}">
                         <a href="{{url('activity')}}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-medal"></i>
                             <div data-i18n="Account Settings">Activities</div>
+                        </a>
+                    </li>
+                    <li class="menu-item {{ Request::is('adds*') ? 'active' : '' }}">
+                        <a href="{{url('adds')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-slideshow"></i>
+                            <div data-i18n="Account Settings">Adds</div>
                         </a>
                     </li>
                 </ul>

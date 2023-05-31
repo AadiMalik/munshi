@@ -28,4 +28,5 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     
     Route::post('update-password', [App\Http\Controllers\ApiController::class, 'update_password']);
+    Route::get('adds', [App\Http\Controllers\ApiController::class, 'adds']);
 });

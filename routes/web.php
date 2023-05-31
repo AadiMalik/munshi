@@ -27,6 +27,8 @@ Route::resource('users', App\Http\Controllers\UserController::class);
 Route::post('delete-user', [App\Http\Controllers\UserController::class, 'delete'])->name('deleteUser');
 Route::resource('roles', App\Http\Controllers\RoleController::class);
 Route::resource('activity', App\Http\Controllers\ActivityController::class);
+Route::resource('adds', App\Http\Controllers\AddController::class);
+Route::post('delete-add', [App\Http\Controllers\AddController::class, 'delete'])->name('deleteAdds');
 
 Route::get('profile', function () {
     return view('users.profile');

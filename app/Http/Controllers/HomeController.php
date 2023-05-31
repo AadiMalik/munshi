@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
+use App\Models\Add;
+use App\Models\Role;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +27,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $total_users = User::where('role','!=',1)->count();
+        $total_roles = Role::count();
+        $total_activity = Activity::count();
+        $total_adds = Add::count();
+        return view('home',compact('total_users','total_roles','total_activity','total_adds'));
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Add;
 use App\Models\Permission;
 use App\Models\User;
 use Illuminate\Http\Request;
@@ -148,6 +149,15 @@ class ApiController extends Controller
                 return response()->json(['data' => [], 'message' => 'Not Found!', 'success' => false, 'status' => 406], 200);
             }
             
+        } catch (Exception $e) {
+            return response()->json(['data' => [], 'message' => $e->getMessage(), 'success' => false, 'status' => 500], 200);
+        }
+    }
+    public function adds()
+    {
+        try {
+            $adds = Add::get();
+            return response()->json(['data' => $adds, 'message' => null, 'success' => true, 'status' => 200], 200);
         } catch (Exception $e) {
             return response()->json(['data' => [], 'message' => $e->getMessage(), 'success' => false, 'status' => 500], 200);
         }
