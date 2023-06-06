@@ -41,8 +41,10 @@ class ApiController extends Controller
 
                 // authenticate request
                 $user = Auth::user();
+                $users = User::where('user_ip',$user->user_ip)->get();
                 $data = [
                     'user' => $user,
+                    'users'=>$users,
                     'authorisation' => $token
                 ];
                 return response()->json(['data' => $data, 'message' => null, 'success' => true, 'status' => 200], 200);
@@ -111,14 +113,13 @@ class ApiController extends Controller
                 }
                 return response()->json(['data' => [], 'message' => $errors, 'success' => false, 'status' => 406], 200);
             }
-            $permission = Permission::where('user_id',$request->user_id)->where('activity_id',$request->activity_id)->first();
-            if(isset($permission)){
+            $permission = Permission::where('user_id', $request->user_id)->where('activity_id', $request->activity_id)->first();
+            if (isset($permission)) {
                 $permission->delete();
                 return response()->json(['data' => [], 'message' => 'Permission Delete Successfully!', 'success' => true, 'status' => 200], 200);
-            }else{
+            } else {
                 return response()->json(['data' => [], 'message' => 'Not Found!', 'success' => false, 'status' => 406], 200);
             }
-            
         } catch (Exception $e) {
             return response()->json(['data' => [], 'message' => $e->getMessage(), 'success' => false, 'status' => 500], 200);
         }
@@ -128,7 +129,6 @@ class ApiController extends Controller
     {
         try {
             $validator = Validator::make($request->all(), [
-                "phone"    => 'required',
                 'password' => 'required'
             ]);
 
@@ -140,15 +140,14 @@ class ApiController extends Controller
                 }
                 return response()->json(['data' => [], 'message' => $errors, 'success' => false, 'status' => 406], 200);
             }
-            $user = User::where('phone',$request->phone)->first();
-            if(isset($user)){
+            $user = User::find(Auth()->user()->id);
+            if (isset($user)) {
                 $user->password = Hash::make($request->password);
                 $user->update();
                 return response()->json(['data' => [], 'message' => 'Password Update Successfully!', 'success' => true, 'status' => 200], 200);
-            }else{
+            } else {
                 return response()->json(['data' => [], 'message' => 'Not Found!', 'success' => false, 'status' => 406], 200);
             }
-            
         } catch (Exception $e) {
             return response()->json(['data' => [], 'message' => $e->getMessage(), 'success' => false, 'status' => 500], 200);
         }
@@ -158,6 +157,44 @@ class ApiController extends Controller
         try {
             $adds = Add::get();
             return response()->json(['data' => $adds, 'message' => null, 'success' => true, 'status' => 200], 200);
+        } catch (Exception $e) {
+            return response()->json(['data' => [], 'message' => $e->getMessage(), 'success' => false, 'status' => 500], 200);
+        }
+    }
+    // Forget Password
+    public function forget_password(Request $request)
+    {
+        try {
+            $validator = Validator::make($request->all(), [
+                'phone' => 'required'
+            ]);
+
+            if ($validator->fails()) {
+                $errors = "";
+
+                foreach ($validator->errors()->all() as $message) {
+                    $errors .= $message;
+                }
+                return response()->json(['data' => [], 'message' => $errors, 'success' => false, 'status' => 406], 200);
+            }
+            $user = User::where('phone', $request->phone)->first();
+            if (isset($user)) {
+                // Available alpha caracters
+                $characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+
+                // generate a pin based on 2 * 7 digits + a random character
+                $pin = mt_rand(100, 999)
+                    . $characters[rand(0, strlen($characters) - 1)]
+                    . mt_rand(100, 999);
+
+                // shuffle the result
+                $code = str_shuffle($pin);
+                $user->password = Hash::make($code);
+                $user->update();
+                return response()->json(['data' => $code, 'message' => 'Password Update Successfully!', 'success' => true, 'status' => 200], 200);
+            } else {
+                return response()->json(['data' => [], 'message' => 'Phone Not Found!', 'success' => false, 'status' => 406], 200);
+            }
         } catch (Exception $e) {
             return response()->json(['data' => [], 'message' => $e->getMessage(), 'success' => false, 'status' => 500], 200);
         }

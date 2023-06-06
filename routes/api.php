@@ -19,6 +19,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 
 Route::post('login', [App\Http\Controllers\ApiController::class, 'login']);
+Route::post('forget-password', [App\Http\Controllers\ApiController::class, 'forget_password']);
+Route::get('adds', [App\Http\Controllers\ApiController::class, 'adds']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
     Route::get('activity', [App\Http\Controllers\ApiController::class, 'activity']);
@@ -28,5 +30,4 @@ Route::group(['middleware' => ['jwt.verify']], function() {
 
     
     Route::post('update-password', [App\Http\Controllers\ApiController::class, 'update_password']);
-    Route::get('adds', [App\Http\Controllers\ApiController::class, 'adds']);
 });
