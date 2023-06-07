@@ -23,7 +23,7 @@ class UserController extends Controller
     }
     public function store(Request $request)
     {
-        $obj = $request->all();
+        $i=1;
         if ($request->hasfile('image')) {
             $file = $request->file('image');
             $upload = 'public/Images/';
@@ -31,9 +31,33 @@ class UserController extends Controller
             $path    = move_uploaded_file($file->getPathName(), $upload . $filename);
             $image =  $upload . $filename;
         }
-        $obj['password'] = Hash::make($request->password);
-        $obj['image'] = $image;
-        $user = User::create($obj);
+        if($i=1){
+            $obj=[
+                "user_ip"=>$request->user_ip,
+                "role"=>$request->role,
+                "phone"=>$request->phone,
+                "company"=>$request->company,
+                "unit_name"=>$request->unit_name,
+                "user_code"=>$request->user_code,
+                "password"=>Hash::make($request->password),
+                "image"=>$image,
+            ];
+            $user = User::create($obj);
+        }
+        foreach($request->worker_code as $index=>$item){
+            $obj=[
+                "user_ip"=>$request->worker_ip[$index],
+                "role"=>$request->worker_role[$index],
+                "phone"=>$request->worker_phone[$index],
+                "user_code"=>$request->worker_code[$index],
+                "password"=>Hash::make($request->worker_password[$index]),
+                "image"=>$image,
+                "company"=>$request->company,
+                "unit_name"=>$request->worker_name[$index],
+                "designation"=>$request->worker_designation[$index],
+            ];
+            $user = User::create($obj);
+        }
         return redirect('users')->with('success', 'User Created!');
     }
     public function edit($id)

@@ -19,7 +19,7 @@
                             @method('PUT')
                             <div class="row">
                                 <div class="col-md-12">
-                                    <b style="font-size:18px; color:#696cff;">Company Admin:</b>
+                                    <b style="font-size:18px; color:#696cff;">User:</b>
                                 </div>
                             </div>
                             <div class="row">
@@ -32,6 +32,21 @@
                                                         class="text-danger">*</span></label>
                                                 <input type="text" name="company" class="form-control" id="phone"
                                                     placeholder="Company" value="{{ $user->company ?? '' }}" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-2">
+                                                <label class="">Unit Name:<span class="text-danger">*</span></label>
+                                                <input type="text" name="unit_name" class="form-control" id="unit_name"
+                                                    placeholder="Unit Name" value="{{ $user->unit_name ?? '' }}" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-2">
+                                                <label class="">User IP:<span class="text-danger">*</span></label>
+                                                <input type="text" step="any" name="user_ip" class="form-control"
+                                                    id="user_ip" placeholder="User IP" value="{{ $user->user_ip ?? '' }}"
+                                                    required />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -51,29 +66,10 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">1st User Phone:<span
-                                                        class="text-danger">*</span></label>
-                                                <input type="number" step="any" name="user_phone1" class="form-control"
-                                                    id="phone" placeholder="First user phone"
-                                                    value="{{ $user->user_phone1 ?? '' }}" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">1st User Name:<span
-                                                        class="text-danger">*</span></label>
-                                                <input type="text" step="any" name="user_name1" class="form-control"
-                                                    id="phone" placeholder="First user name"
-                                                    value="{{ $user->user_name1 ?? '' }}" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">1st User Designation:<span
-                                                        class="text-danger">*</span></label>
-                                                <input type="text" name="user_designation1" class="form-control"
-                                                    id="phone" placeholder="First user designation"
-                                                    value="{{ $user->user_designation1 ?? '' }}" required />
+                                                <label class="">Designation:</label>
+                                                <input type="text" name="designation" class="form-control"
+                                                    id="phone" placeholder="Designation"
+                                                    value="{{ $user->designation ?? '' }}" />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -113,74 +109,6 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="row mt-2">
-                                <div class="col-md-12">
-                                    <b style="font-size:18px; color:#696cff;">Worker:</b>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-12" style="border:2px solid #32CD32;background: #9ef8aa; padding:10px;">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">2nd User Phone:</label>
-                                                <input type="number" step="any" name="user_phone2" class="form-control"
-                                                    id="phone" placeholder="Second user phone"
-                                                    value="{{ $user->user_phone2 ?? '' }}" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">2nd User Name:</label>
-                                                <input type="text" name="user_name2" class="form-control" id="phone"
-                                                    placeholder="Second user name" value="{{ $user->user_name2 ?? '' }}" />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">2nd User Designation:</label>
-                                                <input type="text" name="user_designation2" class="form-control"
-                                                    id="phone" placeholder="Second user designation"
-                                                    value="{{ $user->user_designation2 ?? '' }}" />
-                                            </div>
-                                        </div>
-        
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">Unit Name:<span class="text-danger">*</span></label>
-                                                <input type="text" name="unit_name" class="form-control" id="unit_name"
-                                                    placeholder="Unit Name" value="{{ $user->unit_name ?? '' }}" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">User IP:<span class="text-danger">*</span></label>
-                                                <input type="text" step="any" name="user_ip" class="form-control"
-                                                    id="user_ip" placeholder="User IP" value="{{ $user->user_ip ?? '' }}"
-                                                    required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">Unit Worker Code:<span class="text-danger">*</span></label>
-                                                <input type="number" step="any" name="unit_worker_code"
-                                                    class="form-control" id="unit_worker_code" placeholder="Unit worker code"
-                                                    value="{{ $user->unit_worker_code ?? '' }}" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">Unit Password:</label>
-                                                <input type="text" name="unit_password" class="form-control"
-                                                    id="unit_password" placeholder="Unit Password"
-                                                    value="{{ $user->unit_password ?? '' }}" />
-                                            </div>
-                                        </div>
-        
-                                    </div>
-                                </div>
-                            </div>
-                            
                             <div class="col-md-12">
                                 <hr>
                                 <button type="submit" class="btn btn-primary">Update</button>

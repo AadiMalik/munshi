@@ -24,10 +24,7 @@
                                 <th>Phone</th>
                                 <th>Role</th>
                                 <th>User Code</th>
-                                <th>App Users</th>
-                                <th>User1 Phone</th>
-                                <th>User1 Name</th>
-                                <th>User1 Desgination</th>
+                                <th>Desgination</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -39,10 +36,7 @@
                                 <td>{{$item->phone??'N/A'}}</td>
                                 <td>{{$item->role_name->name??''}}</td>
                                 <td>{{$item->user_code??'N/A'}}</td>
-                                <td>{{$item->app_user??'N/A'}}</td>
-                                <td>{{$item->user_phone1??'N/A'}}</td>
-                                <td>{{$item->user_name1??'N/A'}}</td>
-                                <td>{{$item->user_desgination1??'N/A'}}</td>
+                                <td>{{$item->designation??'N/A'}}</td>
                                 
                                 <td>
                                     <a href="{{route('users.edit',$item->id)}}" class="btn btn-warning">Edit</a>
