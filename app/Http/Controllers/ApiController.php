@@ -40,8 +40,8 @@ class ApiController extends Controller
             } else {
 
                 // authenticate request
-                $user = Auth::user();
-                $users = User::where('user_ip',$user->user_ip)->get();
+                $user = User::with('role_name')->find(Auth::user()->id);
+                $users = User::with('role_name')->where('user_ip',$user->user_ip)->get();
                 $data = [
                     'user' => $user,
                     'users'=>$users,

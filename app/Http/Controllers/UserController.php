@@ -44,6 +44,7 @@ class UserController extends Controller
             ];
             $user = User::create($obj);
         }
+        if(isset($request->worker_code)){
         foreach($request->worker_code as $index=>$item){
             $obj=[
                 "user_ip"=>$request->worker_ip[$index],
@@ -58,6 +59,7 @@ class UserController extends Controller
             ];
             $user = User::create($obj);
         }
+    }
         return redirect('users')->with('success', 'User Created!');
     }
     public function edit($id)
