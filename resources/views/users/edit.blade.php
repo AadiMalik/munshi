@@ -36,14 +36,14 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">Unit Name:<span class="text-danger">*</span></label>
+                                                <label class="">Name:<span class="text-danger">*</span></label>
                                                 <input type="text" name="unit_name" class="form-control" id="unit_name"
-                                                    placeholder="Unit Name" value="{{ $user->unit_name ?? '' }}" required />
+                                                    placeholder="User Name" value="{{ $user->unit_name ?? '' }}" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">User IP:<span class="text-danger">*</span></label>
+                                                <label class="">IP:<span class="text-danger">*</span></label>
                                                 <input type="text" step="any" name="user_ip" class="form-control"
                                                     id="user_ip" placeholder="User IP" value="{{ $user->user_ip ?? '' }}"
                                                     required />

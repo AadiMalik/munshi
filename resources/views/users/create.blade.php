@@ -18,7 +18,7 @@
                             @csrf
                             <div class="row">
                                 <div class="col-md-12">
-                                    <b style="font-size:18px; color:#696cff;">Company Admin:</b>
+                                    <b style="font-size:18px; color:#696cff;">User:</b>
                                 </div>
                             </div>
                             <div class="row">
@@ -34,9 +34,9 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">Unit Name:<span class="text-danger">*</span></label>
+                                                <label class="">Name:<span class="text-danger">*</span></label>
                                                 <input type="text" name="unit_name" class="form-control"
-                                                    id="unit_name" placeholder="Unit Name" required />
+                                                    id="unit_name" placeholder="User Name" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
