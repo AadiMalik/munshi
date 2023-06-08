@@ -28,15 +28,7 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">Company Name:<span
-                                                        class="text-danger">*</span></label>
-                                                <input type="text" name="company" class="form-control" id="phone"
-                                                    placeholder="Company" value="{{ $user->company ?? '' }}" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">Name:<span class="text-danger">*</span></label>
+                                                <label class="">User Name:<span class="text-danger">*</span></label>
                                                 <input type="text" name="unit_name" class="form-control" id="unit_name"
                                                     placeholder="User Name" value="{{ $user->unit_name ?? '' }}" required />
                                             </div>
@@ -87,6 +79,19 @@
                                                     @foreach ($roles as $item)
                                                         <option value="{{ $item->id }}"
                                                             {{ $user->role == $item->id ? 'selected' : '' }}>
+                                                            {{ $item->name ?? '' }}</option>
+                                                    @endforeach
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-2">
+                                                <label class="">Company:<span class="text-danger">*</span></label>
+                                                <select name="company_id" class="form-control" id="company_id">
+                                                    <option selected disabled>--Select Company--</option>
+                                                    @foreach ($company as $item)
+                                                        <option value="{{ $item->id }}"
+                                                            {{ $user->company_id == $item->id ? 'selected' : '' }}>
                                                             {{ $item->name ?? '' }}</option>
                                                     @endforeach
                                                 </select>

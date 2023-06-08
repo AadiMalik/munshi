@@ -122,6 +122,12 @@
                     <li class="menu-header small text-uppercase">
                         <span class="menu-header-text">Menu</span>
                     </li>
+                    <li class="menu-item {{ Request::is('company*') ? 'active' : '' }}">
+                        <a href="{{url('company')}}" class="menu-link">
+                            <i class="menu-icon tf-icons bx bx-home"></i>
+                            <div data-i18n="Account Settings">Companies</div>
+                        </a>
+                    </li>
                     <li class="menu-item {{ Request::is('users*') ? 'active' : '' }}">
                         <a href="{{url('users')}}" class="menu-link">
                             <i class="menu-icon tf-icons bx bx-user"></i>

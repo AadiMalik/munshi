@@ -29,6 +29,7 @@ Route::resource('roles', App\Http\Controllers\RoleController::class);
 Route::resource('activity', App\Http\Controllers\ActivityController::class);
 Route::resource('adds', App\Http\Controllers\AddController::class);
 Route::post('delete-add', [App\Http\Controllers\AddController::class, 'delete'])->name('deleteAdds');
+Route::resource('company', App\Http\Controllers\CompanyController::class);
 
 Route::get('profile', function () {
     return view('users.profile');

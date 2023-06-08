@@ -26,17 +26,9 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">Company Name:<span
-                                                        class="text-danger">*</span></label>
-                                                <input type="text" name="company" class="form-control" id="phone"
-                                                    placeholder="Company" required />
-                                            </div>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <div class="form-group mb-2">
-                                                <label class="">Name:<span class="text-danger">*</span></label>
-                                                <input type="text" name="unit_name" class="form-control"
-                                                    id="unit_name" placeholder="User Name" required />
+                                                <label class="">User Code:<span class="text-danger">*</span></label>
+                                                <input type="number" step="any" name="user_code" class="form-control"
+                                                    id="phone" placeholder="User code" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
@@ -48,16 +40,16 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">Phone No:<span class="text-danger">*</span></label>
-                                                <input type="number" step="any" name="phone" class="form-control"
-                                                    id="phone" placeholder="Phone no" required />
+                                                <label class="">User Name:<span class="text-danger">*</span></label>
+                                                <input type="text" name="unit_name" class="form-control"
+                                                    id="unit_name" placeholder="User Name" required />
                                             </div>
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">User Code:<span class="text-danger">*</span></label>
-                                                <input type="number" step="any" name="user_code" class="form-control"
-                                                    id="phone" placeholder="User code" required />
+                                                <label class="">Phone No:<span class="text-danger">*</span></label>
+                                                <input type="number" step="any" name="phone" class="form-control"
+                                                    id="phone" placeholder="Phone no" required />
                                             </div>
                                         </div>
                                         {{-- <div class="col-md-4">
@@ -104,13 +96,22 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
-                                                <label class="">Image/Logo:<span class="text-danger">*</span></label>
-                                                <input type="file" name="image" class="form-control" id="image"
-                                                    required />
+                                                <label class="">Company:<span class="text-danger">*</span></label>
+                                                <select name="company_id" class="form-control" id="company_id">
+                                                    <option selected disabled>--Select Company--</option>
+                                                    @foreach ($company as $item)
+                                                        <option value="{{ $item->id }}">{{ $item->name ?? '' }}</option>
+                                                    @endforeach
+                                                </select>
                                             </div>
                                         </div>
-                                        
-                                        
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-2">
+                                                <label class="">Designation:<span class="text-danger">*</span></label>
+                                                <input type="text" name="designation" class="form-control"
+                                                    id="designation" placeholder="Designation" required />
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -223,6 +224,12 @@
         html +='</div>';
         html +='<div class="col-md-4">';
         html +='<div class="form-group mb-2">';
+        html +='<label class="">Worker Name:<span class="text-danger">*</span></label>';
+        html +='<input type="text" step="any" name="worker_name[]" class="form-control" id="worker_name" placeholder="Worker name" required/>';
+        html +='</div>';
+        html +='</div>';
+        html +='<div class="col-md-4">';
+        html +='<div class="form-group mb-2">';
         html +='<label class="">Worker Phone:<span class="text-danger">*</span></label>';
         html +='<input type="number" step="any" name="worker_phone[]" class="form-control" id="worker_phone" placeholder="Worker phone" required />';
         html +='</div>';
@@ -246,8 +253,13 @@
         html +='</div>';
         html +='<div class="col-md-4">';
         html +='<div class="form-group mb-2">';
-        html +='<label class="">Worker Name:<span class="text-danger">*</span></label>';
-        html +='<input type="text" step="any" name="worker_name[]" class="form-control" id="worker_name" placeholder="Worker name" required/>';
+        html +='<label class="">Company:<span class="text-danger">*</span></label>';
+        html +='<select name="worker_company[]" class="form-control" id="worker_company">';
+        html +='<option selected disabled>--Select Company--</option>';
+        html +='@foreach ($company as $item)';
+        html +='<option value="{{ $item->id }}">{{ $item->name ?? "" }}</option>';
+        html +='@endforeach';
+        html +='</select>';
         html +='</div>';
         html +='</div>';
         html +='<div class="col-md-4">';
@@ -255,8 +267,9 @@
         html +='<label class="">Worker Designation:<span class="text-danger">*</span></label>';
         html +='<input type="text" step="any" name="worker_designation[]" class="form-control" id="worker_designation" placeholder="Worker designation" required />';
         html +='</div>';
+        html +='</div>';
         html +='<div class="col-md-4">';
-        html +='<div class="form-group mb-2">';
+        html +='<div class="form-group mt-4">';
         html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
         html +='</div>';
         html +='</div>';

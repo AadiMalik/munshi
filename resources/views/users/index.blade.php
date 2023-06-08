@@ -20,7 +20,7 @@
                         <thead>
                             <tr>
                                 <th>IP</th>
-                                <th>Unit Name</th>
+                                <th>User Name</th>
                                 <th>Phone</th>
                                 <th>Role</th>
                                 <th>User Code</th>

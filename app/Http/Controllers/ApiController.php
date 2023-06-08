@@ -38,13 +38,16 @@ class ApiController extends Controller
             if (!$token = JWTAuth::attempt($credentials)) {
                 return response()->json(['data' => [], 'message' => 'Invalid Login Information!', 'success' => false, 'status' => 406], 200);
             } else {
-
+                $users = [];
                 // authenticate request
-                $user = User::with('role_name')->find(Auth::user()->id);
-                $users = User::with('role_name')->where('user_ip',$user->user_ip)->where('role','!=','1')->get();
+                $user = User::with(['role_name', 'company_name'])->find(Auth::user()->id);
+                if ($user->role = 2) {
+                    $users = User::with(['role_name', 'company_name'])->where('company_id', $user->company_id)->get();
+                }
+
                 $data = [
                     'user' => $user,
-                    'users'=>$users,
+                    'users' => $users,
                     'authorisation' => $token
                 ];
                 return response()->json(['data' => $data, 'message' => null, 'success' => true, 'status' => 200], 200);
