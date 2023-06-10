@@ -41,7 +41,7 @@ class ApiController extends Controller
                 $users = [];
                 // authenticate request
                 $user = User::with(['role_name', 'company_name'])->find(Auth::user()->id);
-                if ($user->role = 2) {
+                if ($user->role == 2) {
                     $users = User::with(['role_name', 'company_name'])->where('company_id', $user->company_id)->get();
                 }
 
