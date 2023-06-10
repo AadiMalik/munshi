@@ -24,6 +24,8 @@
                                 <th>Phone</th>
                                 <th>Role</th>
                                 <th>User Code</th>
+                                <th>Company</th>
+                                <th>Marka</th>
                                 <th>Desgination</th>
                                 <th>Action</th>
                             </tr>
@@ -36,6 +38,8 @@
                                 <td>{{$item->phone??'N/A'}}</td>
                                 <td>{{$item->role_name->name??''}}</td>
                                 <td>{{$item->user_code??'N/A'}}</td>
+                                <td>{{$item->company_name->name??''}}</td>
+                                <td>{{$item->marka??''}}</td>
                                 <td>{{$item->designation??'N/A'}}</td>
                                 
                                 <td>

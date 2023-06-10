@@ -32,6 +32,7 @@ class UserController extends Controller
                 "role"=>$request->role,
                 "phone"=>$request->phone,
                 "company_id"=>$request->company_id,
+                "marka"=>$request->marka,
                 "unit_name"=>$request->unit_name,
                 "user_code"=>$request->user_code,
                 "password"=>Hash::make($request->password)
@@ -47,6 +48,7 @@ class UserController extends Controller
                 "user_code"=>$request->worker_code[$index],
                 "password"=>Hash::make($request->worker_password[$index]),
                 "company_id"=>$request->worker_company[$index],
+                "marka"=>$request->worker_marka[$index],
                 "unit_name"=>$request->worker_name[$index],
                 "designation"=>$request->worker_designation[$index],
             ];

@@ -25,6 +25,7 @@ class User extends Authenticatable implements JWTSubject
         'phone',
         'app_user',
         'company_id',
+        'marka',
         'unit_name',
         'user_ip',
         'image',

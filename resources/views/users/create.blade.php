@@ -107,6 +107,13 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
+                                                <label class="">Marka:<span class="text-danger">*</span></label>
+                                                <input type="text" name="marka" class="form-control"
+                                                    id="marka" placeholder="Unit Marka" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-2">
                                                 <label class="">Designation:<span class="text-danger">*</span></label>
                                                 <input type="text" name="designation" class="form-control"
                                                     id="designation" placeholder="Designation" required />
@@ -260,6 +267,12 @@
         html +='<option value="{{ $item->id }}">{{ $item->name ?? "" }}</option>';
         html +='@endforeach';
         html +='</select>';
+        html +='</div>';
+        html +='</div>';
+        html +='<div class="col-md-4">';
+        html +='<div class="form-group mb-2">';
+        html +='<label class="">Marka:<span class="text-danger">*</span></label>';
+        html +='<input type="text" step="any" name="worker_marka[]" class="form-control" id="worker_marka" placeholder="Unit Marka" required />';
         html +='</div>';
         html +='</div>';
         html +='<div class="col-md-4">';

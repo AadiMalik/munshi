@@ -99,6 +99,13 @@
                                         </div>
                                         <div class="col-md-4">
                                             <div class="form-group mb-2">
+                                                <label class="">Marka:<span class="text-danger">*</span></label>
+                                                <input type="text" name="marka" class="form-control"
+                                                    id="marka" placeholder="Unit Marka" value="{{$user->marka}}" required />
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group mb-2">
                                                 <label class="">New Image:</label>
                                                 <input type="file" name="image" class="form-control"
                                                     id="image" />
