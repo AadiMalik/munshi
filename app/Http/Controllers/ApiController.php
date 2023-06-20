@@ -61,7 +61,15 @@ class ApiController extends Controller
     {
         try {
             $activity = Activity::orderBy('name', 'ASC')->get();
-            return response()->json(['data' => $activity, 'message' => null, 'success' => true, 'status' => 200], 200);
+            $activities =[];
+            foreach($activity as $item){
+                $permission = Permission::where('activity_id',$item->id)->where('user_id',Auth()->user()->id)->first();
+                $activities[]=[
+                    'name'=>$item->name,
+                    'permission'=>($permission!=null)?1:0
+                ];
+            }
+            return response()->json(['data' => $activities, 'message' => null, 'success' => true, 'status' => 200], 200);
         } catch (Exception $e) {
             return response()->json(['data' => [], 'message' => $e->getMessage(), 'success' => false, 'status' => 500], 200);
         }
