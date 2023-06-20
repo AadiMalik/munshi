@@ -65,6 +65,7 @@ class ApiController extends Controller
             foreach($activity as $item){
                 $permission = Permission::where('activity_id',$item->id)->where('user_id',Auth()->user()->id)->first();
                 $activities[]=[
+                    'id'=>$item->id,
                     'name'=>$item->name,
                     'permission'=>($permission!=null)?1:0
                 ];
