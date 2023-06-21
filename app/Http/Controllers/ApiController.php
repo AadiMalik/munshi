@@ -57,13 +57,13 @@ class ApiController extends Controller
         }
     }
 
-    public function activity()
+    public function activity($id)
     {
         try {
             $activity = Activity::orderBy('name', 'ASC')->get();
             $activities =[];
             foreach($activity as $item){
-                $permission = Permission::where('activity_id',$item->id)->where('user_id',Auth()->user()->id)->first();
+                $permission = Permission::where('activity_id',$item->id)->where('user_id',$id)->first();
                 $activities[]=[
                     'id'=>$item->id,
                     'name'=>$item->name,

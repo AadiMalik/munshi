@@ -23,7 +23,7 @@ Route::post('forget-password', [App\Http\Controllers\ApiController::class, 'forg
 Route::get('adds', [App\Http\Controllers\ApiController::class, 'adds']);
 
 Route::group(['middleware' => ['jwt.verify']], function() {
-    Route::get('activity', [App\Http\Controllers\ApiController::class, 'activity']);
+    Route::get('activity/{id}', [App\Http\Controllers\ApiController::class, 'activity']);
     Route::post('add-permission', [App\Http\Controllers\ApiController::class, 'add_permission']);
     Route::get('permissions/{id}', [App\Http\Controllers\ApiController::class, 'permissions']);
     Route::post('delete-permission', [App\Http\Controllers\ApiController::class, 'delete_permission']);
