@@ -11,10 +11,15 @@ use Illuminate\Support\Facades\Validator;
 
 class UserController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
+        $wh=[];
+        if(isset($request->company_id) && $request->company_id!=0){
+            $wh=[["id",$request->company_id]];
+        }
+        $company = Company::where($wh)->orderBy('name','asc')->get();
         $users = User::where('id','!=',Auth()->user()->id)->get();
-        return view('users.index', compact('users'));
+        return view('users.index', compact('users','company'));
     }
 
     public function create()

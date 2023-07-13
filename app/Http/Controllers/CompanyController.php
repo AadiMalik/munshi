@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Company;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class CompanyController extends Controller
@@ -60,10 +61,16 @@ class CompanyController extends Controller
         } else {
             $obj['logo'] = $old_company->logo;
         }
-        
         unset($obj['_token']);
         unset($obj['_method']);
+        unset($obj['image']);
         $company = Company::where('id', $id)->update($obj);
         return redirect('company')->with('success', 'Company Created!');
+    }
+    public function delete(Request $request)
+    {
+        User::where('company_id',$request->id)->delete();
+        Company::find($request->id)->delete();
+        return response(['message' => 'Company delete successfully']);
     }
 }

@@ -31,7 +31,12 @@
                             </tr>
                         </thead>
                         <tbody class="table-border-bottom-0">
-                            @foreach ($users as $item)
+                            @foreach ($company as $item1)
+                            <tr>
+                                <th colspan="9" style="text-align: center;"><b style="font-size: 16px;">{{$item1->name??''}}</b></th>
+                            </tr>
+                            @if($users->where('company_id',$item1->id)->count()>0)
+                            @foreach ($users->where('company_id',$item1->id) as $item)
                             <tr>
                                 <td>{{$item->user_ip??'N/A'}}</td>
                                 <td>{{$item->unit_name??'N/A'}}</td>
@@ -51,7 +56,12 @@
                                 </td>
                             </tr>
                             @endforeach
-                            
+                            @else
+                            <tr>
+                                <td colspan="9"><b>Users not found!</b></td>
+                            </tr>
+                            @endif
+                            @endforeach
                         </tbody>
                     </table>
                 </div>
